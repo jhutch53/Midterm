@@ -1,0 +1,45 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(sqldf)
+library(ggplot2)
+library(Lahman)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+query <- "SELECT W FROM Pitching"
+
+result <- sqldf(query)
+
+ggplot()+
+  geom_histogram(data=result, aes(x=W), bins = 30)
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
